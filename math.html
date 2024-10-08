@@ -5,7 +5,7 @@
 <body>
 
     <h2>Vydehi ramineni figures out</h2>
-<h3> Input</h3>
+    <h3> Input</h3>
 
     <label for="first_value">Enter a number:</label>
     <input type="number" id="first_value" value="2">
@@ -33,60 +33,59 @@
                 `Sum of ${first} powers with base ${second} is ${sum}`;
         }
     </script>
-<h3>Input values</h3>
+    <h3>Input values</h3>
 
-<form>
-    <label for="first_value">Enter a number:</label>
-    <input type="number" id="first_value" name="first_value" value="2"><br><br>
+    <form>
+        <label for="first_value">Enter a number:</label>
+        <input type="number" id="first_value" name="first_value" value="2"><br><br>
 
-    <label for="second_value">Enter a number:</label>
-    <input type="number" id="second_value" name="second_value" value="12"><br><br>
+        <label for="second_value">Enter a number:</label>
+        <input type="number" id="second_value" name="second_value" value="12"><br><br>
 
-    <!-- Radio Buttons for Operations -->
-    <label><input type="radio" name="operation" value="max" onclick="processRadio()"> Max</label><br>
-    <label><input type="radio" name="operation" value="min" onclick="processRadio()"> Min</label><br>
-    <label><input type="radio" name="operation" value="avg" onclick="processRadio()"> Average</label><br>
-    <label><input type="radio" name="operation" value="geo" onclick="processRadio()"> Geometric</label><br>
-</form>
+        <!-- Radio Buttons for Operations -->
+        <label><input type="radio" name="operation" value="max" onclick="processRadio()"> Max</label><br>
+        <label><input type="radio" name="operation" value="min" onclick="processRadio()"> Min</label><br>
+        <label><input type="radio" name="operation" value="avg" onclick="processRadio()"> Average</label><br>
+        <label><input type="radio" name="operation" value="geo" onclick="processRadio()"> Geometric</label><br>
+    </form>
 
-<p id="radioResult">Computed result will be shown here</p>
+    <p id="radioResult">Computed result will be shown here</p>
 
-<script> 
+    <script>
 
-    function processRadio() {
-        let first = parseFloat(document.getElementById("first_value").value);
-        let second = parseFloat(document.getElementById("second_value").value);
-        let result;
-        let operation;
+        function processRadio() {
+            let first = parseFloat(document.getElementById("first_value").value);
+            let second = parseFloat(document.getElementById("second_value").value);
+            let result;
+            let operation;
 
-        const radios = document.getElementsByName("operation");
-        for (const radio of radios) {
-            if (radio.checked) {
-                operation = radio.value;
-                break;
+            const radios = document.getElementsByName("operation");
+            for (const radio of radios) {
+                if (radio.checked) {
+                    operation = radio.value;
+                    break;
+                }
             }
+
+            switch (operation) {
+                case "max":
+                    result = Math.max(first, second);
+                    break;
+                case "min":
+                    result = Math.min(first, second);
+                    break;
+                case "avg":
+                    result = (first + second) / 2;
+                    break;
+                case "geo":
+                    result = Math.pow(first * second, 0.5);
+                    break;
+            }
+
+            document.getElementById("radioResult").innerHTML = `Computed ${operation} with values ${first} and ${second} with result ${result}`;
         }
 
-        switch (operation) {
-            case "max":
-                result = Math.max(first, second);
-                break;
-            case "min":
-                result = Math.min(first, second);
-                break;
-            case "avg":
-                result = (first + second) / 2;
-                break;
-            case "geo":
-                result = Math.pow(first * second, 0.5);
-                break;
-        }
-
-        document.getElementById("radioResult").innerHTML = `Computed ${operation} with values ${first} and ${second} with result ${result}`;
-    }
-
-</script>
-
+    </script>
 
 </body>
 
