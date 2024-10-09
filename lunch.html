@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <title>Check Boxes</title>
+<body>
+
+<h2> vdyehi ramineni orders a lunch</h2>
+
+<form id="lunchForm">
+    <div>
+        <label for="drink">Drink</label>
+        <input type="checkbox" id="drink" value="drink">
+    </div>
+    <div>
+        <label for="side">Side</label>
+        <input type="checkbox" id="side" value="side">
+    </div>
+    <div>
+        <label for="in">Eat in</label>
+        <input type="checkbox" id="in" value="in">
+    </div>
+</form>
+
+
+<button onclick="startLunch()">Start a lunch order</button>
+<div id="result"></div>
+<script>
+    // Global variable to store lunch order
+    let my_lunch = {};
+
+    function startLunch() {
+        // Reset my_lunch to an empty object
+        my_lunch = {};
+
+        // Set properties based on checkboxes
+        my_lunch.drink = document.getElementById('drink').checked;
+        my_lunch.side = document.getElementById('side').checked;
+        my_lunch.in = document.getElementById('in').checked;
+
+        // Replace innerHTML with my_lunch
+        document.getElementById('result').innerHTML = JSON.stringify(my_lunch);
+    }
+</script>
+
+</body>
+</html> 
