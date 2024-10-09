@@ -1,45 +1,68 @@
 <!DOCTYPE html>
 <html>
- <title>Check Boxes</title>
+<title>Check Boxes</title>
+
 <body>
 
-<h2> vdyehi ramineni orders a lunch</h2>
+    <h2> vdyehi ramineni orders a lunch</h2>
 
-<form id="lunchForm">
-    <div>
-        <label for="drink">Drink</label>
-        <input type="checkbox" id="drink" value="drink">
-    </div>
-    <div>
-        <label for="side">Side</label>
-        <input type="checkbox" id="side" value="side">
-    </div>
-    <div>
-        <label for="in">Eat in</label>
-        <input type="checkbox" id="in" value="in">
-    </div>
-</form>
+    <form id="lunchForm">
+        <div>
+            <label for="drink">Drink</label>
+            <input type="checkbox" id="drink" value="drink">
+        </div>
+        <div>
+            <label for="side">Side</label>
+            <input type="checkbox" id="side" value="side">
+        </div>
+        <div>
+            <label for="in">Eat in</label>
+            <input type="checkbox" id="in" value="in">
+        </div>
+    </form>
 
+    <button onclick="startLunch()">Start a lunch order</button>
+    <div id="result"></div>
 
-<button onclick="startLunch()">Start a lunch order</button>
-<div id="result"></div>
-<script>
-    // Global variable to store lunch order
-    let my_lunch = {};
+    <br>
+    <br>
 
-    function startLunch() {
-        // Reset my_lunch to an empty object
-        my_lunch = {};
+    <form>
+        <label for="property">Enter property:</label>
+        <input type="text" id="property" value="enter"><br />
 
-        // Set properties based on checkboxes
-        my_lunch.drink = document.getElementById('drink').checked;
-        my_lunch.side = document.getElementById('side').checked;
-        my_lunch.in = document.getElementById('in').checked;
+        <label for="value">Set it to:</label>
+        <input type="text" id="value"><br /><br />
 
-        // Replace innerHTML with my_lunch
-        document.getElementById('result').innerHTML = JSON.stringify(my_lunch);
-    }
-</script>
+        <button type="button" onclick="updateLunch()">Update the Lunch</button>
+    </form>
+    
+    <script>
+        // Global variable to store lunch order
+        let my_lunch = {};
+
+        function startLunch() {
+            // Reset my_lunch to an empty object
+            my_lunch = {};
+
+            // Set properties based on checkboxes
+            my_lunch.drink = document.getElementById('drink').checked;
+            my_lunch.side = document.getElementById('side').checked;
+            my_lunch.in = document.getElementById('in').checked;
+
+            // Replace innerHTML with my_lunch
+            document.getElementById('result').innerHTML = JSON.stringify(my_lunch);
+        }
+
+        function updateLunch() {
+            let property = document.getElementById('property').value;
+            let value = document.getElementById('value').value;
+            my_lunch[property] = value;
+            document.getElementById('lunch-result').innerHTML = JSON.stringify(my_lunch, null, 2);
+        }
+    </script>
+
 
 </body>
-</html> 
+
+</html>
