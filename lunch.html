@@ -2,6 +2,77 @@
 <html>
 <title>Check Boxes</title>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Boxes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #117f88;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #076562;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #555;
+            text-align: center;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #310596a7;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
 <body>
 
     <h2> vdyehi ramineni orders a lunch</h2>
@@ -36,7 +107,7 @@
 
         <button type="button" onclick="updateLunch()">Update the Lunch</button>
     </form>
-    
+
     <script>
         // Global variable to store lunch order
         let my_lunch = {};
@@ -61,8 +132,8 @@
             document.getElementById('lunch-result').innerHTML = JSON.stringify(my_lunch, null, 2);
         }
     </script>
-<a href="math.html"> Math page</a><br>
-<a href="guessit.html"> Guessit page</a>
+    <a href="math.html"> Math page</a><br>
+    <a href="guessit.html"> Guessit page</a>
 
 </body>
 
